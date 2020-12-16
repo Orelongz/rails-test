@@ -43,3 +43,7 @@ Add an admin section to the RailsGuest meeting the following requirements:
 ## Submissions
 
 To submit, create a new branch, push your changes, create a Pull Request and send the link.
+
+## Details to signin as an admin
+- username: admin_user
+- password: adm1n-U3er

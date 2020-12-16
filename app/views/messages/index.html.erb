@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/top_contents' %>
 
 <h1>Messages</h1>
 
@@ -10,13 +10,16 @@
 </div>
 
 <% @messages.each do |message| %>
-  <div class="card-body">
+  <div class="card-body <%= 'hidden-message' unless message.visible %>">
     <hr />
     <p class="card-text"><%= message.entry %></p>
     <p class="card-text">
-        <small class="text-muted">
-            <span class="text-muted">Added <%= message.created_at.to_s(:short) %> by <%= message.name %></span>
-        </small>
+      <small class="text-muted">
+        <span class="text-muted">Added <%= message.created_at.to_s(:short) %> by <%= message.name %></span>
+        <% if is_admin? %>
+          <%= link_to visibility_text(message.visible), toggle_message_visiblity_path(:message_id => message.id),  method: :post %>
+        <% end %>
+      </small>
     </p>
   </div>
 <% end %>

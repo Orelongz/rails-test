@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_14_114118) do
+ActiveRecord::Schema.define(version: 2020_12_16_010252) do
 
   create_table "messages", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 2020_11_14_114118) do
     t.string "ip_address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "visible", default: true
+    t.index ["visible"], name: "index_messages_on_visible"
   end
 
 end
